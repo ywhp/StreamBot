@@ -99,7 +99,7 @@ class Youtube {
     }
   };
 
-  async getUrl(url, videoQuality = 720, format_note = 'medium') {
+  async getUrl(url, videoQuality = 720) {
     
     const info = await youtubeDl(url, {
       dumpSingleJson: true,
@@ -149,3 +149,4 @@ class Youtube {
 module.exports = {
   Youtube
 }
+
