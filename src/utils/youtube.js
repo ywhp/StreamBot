@@ -128,17 +128,6 @@ class Youtube {
     
     const audioUrl = formats
     .filter(f => f.acodec !== "none" && f.vcodec === "none" && f.format_note === format_note)
-    // .map(f => {
-    //   return {
-    //     url: f.url,
-    //     abr: f.abr,
-    //     ext: f.ext,
-    //     filesize: f.filesize,
-    //     quality: f.abr || 'Unknown',
-    //     type: f.ext
-    //   }
-    // })
-    // .sort((a,b) => (b.abr) - (a.abr))
     .at(0)
     ?.url;
 
@@ -158,4 +147,5 @@ class Youtube {
 
 module.exports = {
   Youtube
+
 }
