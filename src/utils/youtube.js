@@ -109,7 +109,7 @@ class Youtube {
     const formats = info.formats;
 
     const videoUrl = formats
-    .filter(f => f.vcodec !== 'none' && f.acodec === 'none' && f.ext === 'mp4')
+    .filter(f => f.vcodec !== 'none' && f.acodec === 'none')
     .map(f => {
       return {
         url: f.url,
@@ -127,7 +127,8 @@ class Youtube {
     ?.url;
     
     const audioUrl = formats
-    .filter(f => f.acodec !== "none" && f.vcodec === "none" && f.format_note === format_note)
+    .filter(f => f.acodec !== "none" && f.vcodec === "none")
+    .sort((a,b) => (b.abr) - (a.abr))
     .at(0)
     ?.url;
 
@@ -147,5 +148,4 @@ class Youtube {
 
 module.exports = {
   Youtube
-
 }
